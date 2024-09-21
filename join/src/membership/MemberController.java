@@ -71,6 +71,10 @@ public class MemberController extends HttpServlet {
             MemberVO memInfo = dao.readModDB(id);
             request.setAttribute("memInfo", memInfo);
             nextPage = "/views/modMemberForm.jsp";
+        } else if (action.equals("/delMember.do")) {
+            String id = request.getParameter("id");
+            dao.deleteDB(id);
+            nextPage = "/member/listShow.do";
         } else {
             nextPage = "error";
         }
