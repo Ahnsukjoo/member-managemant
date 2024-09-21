@@ -45,8 +45,17 @@ public class MemberController extends HttpServlet {
             System.out.println(membersList);
             request.setAttribute("membersList", membersList);
             nextPage = "/views/listMembers.jsp";
+        } else if (action.equals("/addList.do")) {
+            String id = request.getParameter("id");
+            String pwd = request.getParameter("pwd");
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+            dao.addDB(id, pwd, name, email);
+            nextPage = "/member/listShow.do";
+        } else if (action.equals("/memberForm.do")) {
+            nextPage = "/views/memberForm.jsp";
         } else {
-           nextPage = "error";
+            nextPage = "error";
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
