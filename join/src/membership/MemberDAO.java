@@ -118,4 +118,18 @@ public class MemberDAO {
             e.printStackTrace();
         }
     }
+
+    public void deleteDB(String id) {
+        try {
+            conn = factory.getConnection();
+            String query = "DELETE FROM t_member WHERE id = ?";
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, id);
+            pstmt.executeUpdate();
+            conn.close();
+            pstmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
