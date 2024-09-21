@@ -35,15 +35,15 @@ public class MemberController extends HttpServlet {
     protected void doHandle(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=utf");
+        response.setContentType("text/html;charset=utf-8");
         String action = request.getPathInfo();
         String nextPage = null;
 
-        if (action == null ||action.equals("listShow.do")) {
+        if (action == null || action.equals("listShow.do")) {
             List<MemberVO> membersList = dao.readDB();
             request.setAttribute("membersList", membersList);
-            nextPage="/views/listMembers.jsp";
-        }else {
+            nextPage = "/views/listMembers.jsp";
+        } else {
             nextPage = "/views/listMembers.jsp";
         }
 
