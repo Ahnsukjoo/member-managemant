@@ -36,15 +36,17 @@ public class MemberController extends HttpServlet {
         throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
+
         String action = request.getPathInfo();
         String nextPage = null;
 
-        if (action == null || action.equals("listShow.do")) {
+        if (action == null || action.equals("/listShow.do") || action.equals("/")) {
             List<MemberVO> membersList = dao.readDB();
+            System.out.println(membersList);
             request.setAttribute("membersList", membersList);
             nextPage = "/views/listMembers.jsp";
         } else {
-            nextPage = "/views/listMembers.jsp";
+           nextPage = "error";
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
