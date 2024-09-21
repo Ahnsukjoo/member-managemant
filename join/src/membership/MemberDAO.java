@@ -54,4 +54,23 @@ public class MemberDAO {
         }
         return list;
     }
+
+    public void addDB(String id, String pwd, String name, String email) {
+        try {
+            conn = factory.getConnection();
+            String query = "INSERT INTO t_member(id, pwd, name, email) values (?,?,?,?)";
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, id);
+            pstmt.setString(2, pwd);
+            pstmt.setString(3, name);
+            pstmt.setString(4, email);
+            pstmt.executeUpdate();
+
+            conn.close();
+            pstmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
 }
