@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="join">
+    <output-path>$PROJECT_DIR$/out/artifacts/join</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="join/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="join" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
