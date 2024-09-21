@@ -54,6 +54,23 @@ public class MemberController extends HttpServlet {
             nextPage = "/member/listShow.do";
         } else if (action.equals("/memberForm.do")) {
             nextPage = "/views/memberForm.jsp";
+        } else if (action.equals("/modMember.do")) {
+            MemberVO vo = new MemberVO();
+            String id = request.getParameter("id");
+            String pwd = request.getParameter("pwd");
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+            vo.setId(id);
+            vo.setPwd(pwd);
+            vo.setName(name);
+            vo.setEmail(email);
+            dao.updateDB(vo);
+            nextPage = "/member/listShow.do";
+        } else if (action.equals("/modMemberForm.do")) {
+            String id = request.getParameter("id");
+            MemberVO memInfo = dao.readModDB(id);
+            request.setAttribute("memInfo", memInfo);
+            nextPage = "/views/modMemberForm.jsp";
         } else {
             nextPage = "error";
         }
