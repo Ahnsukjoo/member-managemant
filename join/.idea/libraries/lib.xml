@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/library/commons-fileupload-1.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/commons-io-2.16.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/json-simple-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/ojdbc11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/taglibs-standard-compat-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/tomcat-dbcp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/taglibs-standard-spec-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/taglibs-standard-jstlel-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/taglibs-standard-impl-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apache-tomcat-9.0.93/lib/tomcat-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apache-tomcat-9.0.93/lib/servlet-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
