@@ -41,7 +41,6 @@ public class MemberDAO {
                 String nanme = rs.getString("name");
                 String email = rs.getString("email");
                 Date joinDate = rs.getDate("joinDate");
-
                 list.add(new MemberVO(id, pwd, nanme, email, joinDate));
             }
 
@@ -71,6 +70,52 @@ public class MemberDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
+    }
+
+    public MemberVO readModDB(String id) {
+        MemberVO info = new MemberVO();
+        try {
+            conn = factory.getConnection();
+            String query = "SELECT * FROM t_member WHERE id = ?";
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            rs.next();
+            info.setId(rs.getString("id"));
+            info.setPwd(rs.getString("pwd"));
+            info.setName(rs.getString("name"));
+            info.setEmail(rs.getString("email"));
+            info.setJoinDate(rs.getDate("joinDate"));
+
+            conn.close();
+            pstmt.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return info;
+    }
+
+    public void updateDB(MemberVO vo) {
+        try {
+            String pwd = vo.getPwd();
+            String name = vo.getName();
+            String email = vo.getEmail();
+            String id = vo.getId();
+            conn = factory.getConnection();
+            String query = "UPDATE t_member SET pwd = ?, name = ?, email = ? WHERE id = ?";
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, pwd);
+            pstmt.setString(2, name);
+            pstmt.setString(3, email);
+            pstmt.setString(4, id);
+            pstmt.executeUpdate();
+            conn.close();
+            pstmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
